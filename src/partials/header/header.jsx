@@ -1,5 +1,5 @@
 import styles from "../../styles/header.module.css";
 
 export default function Header() {
-    return <header className={styles.header}>Photos Jastified!</header>;
+    return <header className={styles.header}>Photos Justified!</header>;
 }
