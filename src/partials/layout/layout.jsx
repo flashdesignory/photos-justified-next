@@ -2,7 +2,7 @@ import Header from "@/partials/header/header";
 import Main from "@/partials/main/main";
 import Footer from "@/partials/footer/footer";
 
-import styles from "../../styles/layout.module.css";
+import styles from "./layout.module.css";
 
 export default function Layout({ id, children }) {
     console.log("id", id);

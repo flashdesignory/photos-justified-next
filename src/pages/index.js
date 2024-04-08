@@ -3,7 +3,7 @@ import Head from "next/head";
 import data from "public/data/surf.json";
 import Page from "@/partials/page/page"
 
-import ImageDisplay from "../components/image/image-display"
+import JustifiedLayout from "@/components/justified-layout/justified-layout";
 
 export default function Home() {
     return (
@@ -14,7 +14,7 @@ export default function Home() {
                 <meta httpEquiv="Permissions-Policy" content="interest-cohort=()" />
             </Head>
             <Page id="index">
-              {data.items.map((item) => <ImageDisplay key={item.id} data={item} />)}
+              <JustifiedLayout data={data} />
             </Page>
         </>
     );
