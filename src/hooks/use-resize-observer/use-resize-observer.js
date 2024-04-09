@@ -1,12 +1,12 @@
 import { useRef, useEffect } from "react";
 
 export function useResizeObserver({ callback }) {
-    const ref = useRef(undefined);
+    const elementRef = useRef(undefined);
     let resizeObserver = useRef(undefined);
 
     useEffect(
         function () {
-            const element = ref.current;
+            const element = elementRef.current;
             resizeObserver.current = new ResizeObserver(callback);
             resizeObserver.current.observe(element);
 
@@ -19,5 +19,15 @@ export function useResizeObserver({ callback }) {
         [callback]
     );
 
-    return { ref };
+    function connect() {
+
+    }
+
+    function disconnect() {
+        if(resizeObserver.current) {
+            resizeObserver.current.disconnect();
+        }
+    }
+
+    return { elementRef, disconnect };
 }
