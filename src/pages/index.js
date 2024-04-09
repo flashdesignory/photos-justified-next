@@ -2,7 +2,6 @@ import Head from "next/head";
 
 import data from "public/data/surf.json";
 import Page from "@/partials/page/page"
-
 import JustifiedLayout from "@/components/justified-layout/justified-layout";
 
 export default function Home() {
