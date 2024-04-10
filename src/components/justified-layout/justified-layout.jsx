@@ -11,8 +11,8 @@ export default function JustifiedLayout({
 }) {
     const [sizes, setSizes] = useState(
         data.items.map((item) => ({
-            width: item.image.width,
-            height: item.image.height,
+            width: 0,
+            height: 0,
         }))
     );
     const [containerWidth, setContainerWidth] = useState(-1);

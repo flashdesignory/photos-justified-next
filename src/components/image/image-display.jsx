@@ -9,8 +9,13 @@ export default function ImageDisplay({ data, width, height }) {
     const padding = useRef(0);
 
     useEffect(function () {
-        const style = getComputedStyle(document.body);
-        padding.current = parseInt(style.getPropertyValue("--content-spacing-medium"), 10);
+        if (!padding.current) {
+            const style = getComputedStyle(document.body);
+            padding.current = parseInt(
+                style.getPropertyValue("--content-spacing-medium"),
+                10
+            );
+        }
     }, []);
 
     const { maxWidth, maxHeight, aspectRatio } = useSize({ width, height });
@@ -19,6 +24,11 @@ export default function ImageDisplay({ data, width, height }) {
         maxHeight: `${maxHeight}px`,
         aspectRatio,
     };
+
+    if (maxWidth === 0 || maxHeight === 0) {
+        return null;
+    }
+
     return (
         <div className={styles["image-display"]} style={customStyles}>
             <div className={styles["image-container"]}>
