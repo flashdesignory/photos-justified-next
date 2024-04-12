@@ -7,6 +7,12 @@ import styles from "./image-display.module.css";
 
 export default function ImageDisplay({ data, width, height }) {
     const padding = useRef(0);
+    const { maxWidth, maxHeight, aspectRatio } = useSize({ width, height });
+    const customStyles = {
+        maxWidth: `${maxWidth}px`,
+        maxHeight: `${maxHeight}px`,
+        aspectRatio,
+    };
 
     useEffect(function () {
         if (!padding.current) {
@@ -17,13 +23,6 @@ export default function ImageDisplay({ data, width, height }) {
             );
         }
     }, []);
-
-    const { maxWidth, maxHeight, aspectRatio } = useSize({ width, height });
-    const customStyles = {
-        maxWidth: `${maxWidth}px`,
-        maxHeight: `${maxHeight}px`,
-        aspectRatio,
-    };
 
     if (maxWidth === 0 || maxHeight === 0) {
         return null;
