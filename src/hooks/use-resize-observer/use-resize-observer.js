@@ -10,21 +10,17 @@ export function useResizeObserver({ callback }) {
             resizeObserver.current = new ResizeObserver(callback);
             resizeObserver.current.observe(element);
 
-            return function() {
+            return function () {
                 if (resizeObserver.current) {
                     resizeObserver.current.unobserve(element);
                 }
-            }
+            };
         },
         [callback]
     );
 
-    function connect() {
-
-    }
-
     function disconnect() {
-        if(resizeObserver.current) {
+        if (resizeObserver.current) {
             resizeObserver.current.disconnect();
         }
     }

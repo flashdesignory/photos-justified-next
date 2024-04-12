@@ -1,8 +1,8 @@
 const gcd = (a, b) => (b ? gcd(b, a % b) : a);
 
 const getAspectRatioForStyles = (width, height) => {
-  const divisor = gcd(width, height);
-  return `${width / divisor}/${height / divisor}`;
+    const divisor = gcd(width, height);
+    return `${width / divisor}/${height / divisor}`;
 };
 
 export function useSize({ width, height }) {
