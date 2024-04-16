@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ImageDisplay from "../image/image-display";
+import ImageDisplay from "../image-display/image-display";
 import styles from "./justified-layout.module.css";
 
 import { useResizeObserver } from "@/hooks/use-resize-observer/use-resize-observer";
